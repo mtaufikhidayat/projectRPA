@@ -1,0 +1,261 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Directory" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_rpaApiList" Type="InArgument(x:String)" />
+    <x:Property Name="in_projectName" Type="InArgument(x:String)" />
+    <x:Property Name="out_dtBaseFolder" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_urlConfins" Type="OutArgument(x:String)" />
+    <x:Property Name="out_listAPI" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <this:Initialize_Directory.in_rpaApiList>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Initialize_Directory.in_rpaApiList>
+  <this:Initialize_Directory.in_projectName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Initialize_Directory.in_projectName>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,2316</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Initialize_Directory_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="29">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Initialize_Directory" sap:VirtualizedContainerService.HintSize="1225.6,2151.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtURLConfins" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtBaseFolder" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtListAPI" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[File.Exists(in_rpaApiList)]" DisplayName="Check File RPA API List" sap:VirtualizedContainerService.HintSize="1184,2058.4" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Process" sap:VirtualizedContainerService.HintSize="764.8,1899.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Read Input" sap:VirtualizedContainerService.HintSize="723.2,462.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" ReadOnly="True" Visible="False" WorkbookPath="[in_rpaApiList]">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,352.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[out_dtBaseFolder]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Base Folder">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[dtURLConfins]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="Url Confins">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[out_listAPI]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" SheetName="List API">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExcelApplicationScope>
+          <If Condition="[out_dtBaseFolder.AsEnumerable().Where(Function(x) x(&quot;Project&quot;).ToString.Trim().Equals(in_projectName)).ToArray().Count&gt;0]" DisplayName="Check Project Name" sap:VirtualizedContainerService.HintSize="723.2,400" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Normalize dtBaseFolder" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[out_dtBaseFolder]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[out_dtBaseFolder.AsEnumerable().Where(Function(x) x("Project").ToString.Trim().Equals(in_projectName)).CopyToDataTable]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Error" sap:VirtualizedContainerService.HintSize="375.2,240.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Tidak ada nama project &quot;+&quot;&quot;&quot;&quot;+in_projectName+&quot;&quot;&quot;&quot;+ &quot; pada file &quot;+&quot;&quot;&quot;&quot;+in_rpaApiList+&quot;&quot;&quot;&quot;]" />
+                <Throw Exception="[new System.Exception(&quot;Cannot find &quot;+in_projectName+&quot; in file &quot;+in_rpaApiList)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </Sequence>
+            </If.Else>
+          </If>
+          <If Condition="[dtURLConfins.Rows.Count &gt; 0]" DisplayName="Check Url Confins" sap:VirtualizedContainerService.HintSize="723.2,400" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Normalize dtBaseFolder" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_urlConfins]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[dtURLConfins.Rows(0)("Confins").ToString]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Error" sap:VirtualizedContainerService.HintSize="375.2,240.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Tidak ada Url Confins pada file &quot;+&quot;&quot;&quot;&quot;+in_rpaApiList+&quot;&quot;&quot;&quot;]" />
+                <Throw Exception="[New System.Exception(&quot;Cannot find URL Confins in file &quot;+in_rpaApiList)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_3" />
+              </Sequence>
+            </If.Else>
+          </If>
+          <If Condition="[out_listAPI.AsEnumerable().Where(Function(x) x(&quot;API Name&quot;).ToString.Trim().Equals(&quot;agreement_detail&quot;)).ToArray().Count=0 Or &#xD;&#xA;out_listAPI.AsEnumerable().Where(Function(x) x(&quot;API Name&quot;).ToString.Trim().Equals(&quot;debit_notes&quot;)).ToArray().Count=0 Or&#xD;&#xA;out_listAPI.AsEnumerable().Where(Function(x) x(&quot;API Name&quot;).ToString.Trim().Equals(&quot;list_pending_process_to_debit_notes&quot;)).ToArray().Count=0]" DisplayName="Check API" sap:VirtualizedContainerService.HintSize="723.2,424" sap2010:WorkflowViewState.IdRef="If_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Error" sap:VirtualizedContainerService.HintSize="375.2,240.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Tidak ada API agremeent_detail atau debit_notes atau list_pending_process_to_debit_notes pada file pada file &quot;+ &quot;&quot;&quot;&quot; + in_rpaApiList + &quot;&quot;&quot;&quot;]" />
+                <Throw Exception="[new System.Exception(&quot;Cannot find API agreement_detail or journal_scheme in file &quot;+in_rpaApiList)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_4" />
+              </Sequence>
+            </If.Then>
+          </If>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Error" sap:VirtualizedContainerService.HintSize="375.2,240.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;File RPA API List.xlsx tidak ditemukan !!! Harap sediakan file RPA API List.xlsx di &quot; + Path.GetDirectoryName(in_rpaApiList) + &quot;..&quot;]" />
+          <Throw Exception="[new System.Exception(&quot;Cannot find &quot;+in_rpaApiList)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_2" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

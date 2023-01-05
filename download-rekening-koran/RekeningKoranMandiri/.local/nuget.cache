@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "fl++v9/Pn/mDXMoh2R+TwrSeF+kIQoOYVHzHb492Xf920Qucyg/4P5txBgL1jWAbTH6EjgK18z9GJj90Ir1ioA==",
+  "success": true,
+  "projectFilePath": "D:\\GITHUB\\rpa-script\\download-rekening-koran\\RekeningKoranMandiri\\.local\\",
+  "expectedPackageFiles": [
+    "C:\\Users\\075494\\.nuget\\packages\\avalonedit\\5.0.3\\avalonedit.5.0.3.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\bouncycastle\\1.8.1\\bouncycastle.1.8.1.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\csvhelper\\2.13.5\\csvhelper.2.13.5.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\documentformat.openxml\\2.5.0\\documentformat.openxml.2.5.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\extended.wpf.toolkit\\2.8.0\\extended.wpf.toolkit.2.8.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\humanizer.core\\2.4.2\\humanizer.core.2.4.2.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\interop.domino.dll\\1.0.0\\interop.domino.dll.1.0.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.0\\microsoft.aspnet.signalr.client.2.4.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\microsoft.exchange.webservices\\2.2.0\\microsoft.exchange.webservices.2.2.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\microsoft.rest.clientruntime\\2.3.19\\microsoft.rest.clientruntime.2.3.19.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\7.10.6071\\microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\npoi\\2.4.1\\npoi.2.4.1.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\sharpziplib\\1.0.0\\sharpziplib.1.0.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath\\19.4.7068.19937\\uipath.19.4.7068.19937.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath.excel.activities\\2.5.4\\uipath.excel.activities.2.5.4.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath.mail.activities\\1.4.1\\uipath.mail.activities.1.4.1.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath.system.activities\\19.4.1\\uipath.system.activities.19.4.1.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath.uiautomation.activities\\19.4.2\\uipath.uiautomation.activities.19.4.2.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipath.vision\\1.5.0\\uipath.vision.1.5.0.nupkg.sha512",
+    "C:\\Users\\075494\\.nuget\\packages\\uipathteam.archivelib.activity\\1.0.6967.36228\\uipathteam.archivelib.activity.1.0.6967.36228.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "filePath": "D:\\GITHUB\\rpa-script\\download-rekening-koran\\RekeningKoranMandiri\\.local",
+      "message": "UiPath.System.Activities 19.4.1 depends on Microsoft.Rest.ClientRuntime (>= 2.3.10) but Microsoft.Rest.ClientRuntime 2.3.10 was not found. An approximate best match of Microsoft.Rest.ClientRuntime 2.3.19 was resolved.",
+      "libraryId": "Microsoft.Rest.ClientRuntime",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.6.1",
+        ".NETFramework,Version=v4.6.1/win7-x86"
+      ]
+    }
+  ]
+}

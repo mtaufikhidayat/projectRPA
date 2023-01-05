@@ -1,0 +1,121 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Write_Result" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_fileResult" Type="InArgument(x:String)" />
+    <x:Property Name="in_dtResult" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_Sheet" Type="InArgument(x:String)" />
+    <x:Property Name="in_Array" Type="InArgument(s:String[])" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1034.4,1012</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="27">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Write Result" sap:VirtualizedContainerService.HintSize="786.4,947.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_17" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_fileResult]">
+    <ui:ExcelApplicationScope.Body>
+      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="752.8,837.6" sap2010:WorkflowViewState.IdRef="Sequence_342">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="cell" />
+            <Variable x:TypeArguments="x:String" Default="Modular\VBA\Autofit.vbs" Name="vbaAutofit" />
+            <Variable x:TypeArguments="x:String" Default="Modular\VBA\Format to Text.vbs" Name="vbaText" />
+            <Variable x:TypeArguments="x:String" Default="Modular\VBA\New Excel.vbs" Name="vbaNewExcel" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[in_sheet.Equals(&quot;Sheet1&quot;)]" DisplayName="CheckSheet" sap:VirtualizedContainerService.HintSize="711.2,267.2" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[vbaText]" DisplayName="Invoke VBA 'Format to text'" EntryMethodName="Text" EntryMethodParameters="[{in_Array(0),in_Sheet}]" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_17" />
+            </If.Then>
+          </If>
+          <ui:ExcelWriteRange AddHeaders="True" DataTable="[in_dtResult]" DisplayName="Write Range 'dtResult'" sap:VirtualizedContainerService.HintSize="711.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_15" SheetName="[in_Sheet]" StartingCell="A1" />
+          <If Condition="[in_sheet.Equals(&quot;Sheet1&quot;)]" DisplayName="CheckSheet" sap:VirtualizedContainerService.HintSize="711.2,247.2" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[vbaNewExcel]" DisplayName="Invoke VBA 'New Excel'" EntryMethodName="Autofit" EntryMethodParameters="[in_Array]" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_15" />
+            </If.Then>
+            <If.Else>
+              <ui:InvokeVBA OutputValue="{x:Null}" CodeFilePath="[vbaAutofit]" DisplayName="Invoke VBA 'Sheet Result'" EntryMethodName="Autofit" EntryMethodParameters="[in_Array]" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_16" />
+            </If.Else>
+          </If>
+          <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="711.2,22.4" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_13" />
+        </Sequence>
+      </ActivityAction>
+    </ui:ExcelApplicationScope.Body>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </ui:ExcelApplicationScope>
+</Activity>
