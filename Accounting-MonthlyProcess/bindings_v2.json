@@ -1,0 +1,18 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "asset",
+      "value": {
+        "name": {
+          "defaultValue": "row(\"Asset\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    }
+  ]
+}

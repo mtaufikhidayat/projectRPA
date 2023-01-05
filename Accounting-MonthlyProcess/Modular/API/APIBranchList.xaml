@@ -1,0 +1,330 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="API" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_resultProcess" Type="OutArgument(x:String)" />
+    <x:Property Name="out_exceptionStatus" Type="OutArgument(x:String)" />
+    <x:Property Name="in_apiBranchList" Type="InArgument(x:String)" />
+    <x:Property Name="in_apiKeyBranchList" Type="InArgument(x:String)" />
+    <x:Property Name="out_dtBranchList" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <this:API.in_apiBranchList>
+    <InArgument x:TypeArguments="x:String" />
+  </this:API.in_apiBranchList>
+  <this:API.in_apiKeyBranchList>
+    <InArgument x:TypeArguments="x:String" />
+  </this:API.in_apiKeyBranchList>
+  <sap:VirtualizedContainerService.HintSize>1012,1992</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="38">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>DesktopNotification</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.runTime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>DesktopNotification</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <TryCatch DisplayName="Try Catch Check API" sap:VirtualizedContainerService.HintSize="1022.4,1927.2" sap2010:WorkflowViewState.IdRef="TryCatch_105">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch.Try>
+      <Sequence DisplayName="Check API from Table Agreement" sap:VirtualizedContainerService.HintSize="985.6,1696" sap2010:WorkflowViewState.IdRef="Sequence_1945">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Int32" Name="apiStatusCode" />
+          <Variable x:TypeArguments="x:String" Name="apiResult" />
+          <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="apiHeader" />
+          <Variable x:TypeArguments="x:String" Name="apiError" />
+          <Variable x:TypeArguments="x:Int32" Name="counter" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Counter" sap:VirtualizedContainerService.HintSize="944,60" sap2010:WorkflowViewState.IdRef="Assign_1984">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="944,651.2" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_65">
+          <ui:InterruptibleDoWhile.Body>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="478.4,484" sap2010:WorkflowViewState.IdRef="Sequence_1942">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,291.2" sap2010:WorkflowViewState.IdRef="TryCatch_106">
+                <TryCatch.Try>
+                  <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[in_apiBranchList]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="HttpClient_13" Method="GET" ResponseHeaders="[apiHeader]" Result="[apiResult]" StatusCode="[apiStatusCode]" TimeoutMS="30000">
+                    <ui:HttpClient.Attachments>
+                      <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                    </ui:HttpClient.Attachments>
+                    <ui:HttpClient.Cookies>
+                      <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                    </ui:HttpClient.Cookies>
+                    <ui:HttpClient.Headers>
+                      <InArgument x:TypeArguments="x:String" x:Key="apikey">[in_apiKeyBranchList]</InArgument>
+                    </ui:HttpClient.Headers>
+                    <ui:HttpClient.Parameters>
+                      <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                    </ui:HttpClient.Parameters>
+                    <ui:HttpClient.UrlSegments>
+                      <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                    </ui:HttpClient.UrlSegments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:HttpClient>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_104">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <Assign DisplayName="Counter" sap:VirtualizedContainerService.HintSize="436.8,60" sap2010:WorkflowViewState.IdRef="Assign_1985">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ui:InterruptibleDoWhile.Body>
+          <ui:InterruptibleDoWhile.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Not apiStatusCode=200 And counter&lt;=5" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+          </ui:InterruptibleDoWhile.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InterruptibleDoWhile>
+        <If Condition="[apiStatusCode =  200]" DisplayName="Check API Status Code" sap:VirtualizedContainerService.HintSize="944,812" sap2010:WorkflowViewState.IdRef="If_583">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence DisplayName="Success" sap:VirtualizedContainerService.HintSize="375.2,652.8" sap2010:WorkflowViewState.IdRef="Sequence_1946">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="njl:JObject" Name="jsonObject" />
+                <Variable x:TypeArguments="njl:JObject" Name="jsonData" />
+                <Variable x:TypeArguments="njl:JArray" Name="jsonArray" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObject]" JsonString="[apiResult]" />
+              <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_1" JsonArray="[jsonArray]" JsonString="[jsonObject.SelectToken(&quot;data&quot;).ToString]" />
+              <ui:DeserializeJson x:TypeArguments="sd:DataTable" DisplayName="Deserialize JSON Convert to DT" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[out_dtBranchList]" JsonString="[CType(jsonArray,JArray).ToString]" />
+              <Assign DisplayName="out_dtBranchList" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1995">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="sd:DataTable">[out_dtBranchList]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="sd:DataTable">[out_dtBranchList.DefaultView.ToTable(False, "branch_id","branch_full_name","branch_initial_name")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Result Confins Process" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1993">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_resultProcess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Success</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Exception Status Confins" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1994">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_exceptionStatus]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence DisplayName="Failed" sap:VirtualizedContainerService.HintSize="524.8,532" sap2010:WorkflowViewState.IdRef="Sequence_1944">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="out_resultProcess" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1989">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_resultProcess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">Failed</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[String.IsNullOrEmpty(apiError)]" DisplayName="Check apiError" sap:VirtualizedContainerService.HintSize="483.2,239.2" sap2010:WorkflowViewState.IdRef="If_582">
+                <If.Then>
+                  <Assign DisplayName="apiError" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1990">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[apiError]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">-</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </If.Then>
+              </If>
+              <Assign DisplayName="Exception Status Confins" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_1991">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[out_exceptionStatus]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">["Cannot Get Result from Table Agreement: API Status Code: "+apiStatusCode.ToString+", API Error: " + apiError]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </If.Else>
+        </If>
+      </Sequence>
+    </TryCatch.Try>
+    <TryCatch.Catches>
+      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="988.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_103">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ActivityAction x:TypeArguments="s:Exception">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Data not Found" sap:VirtualizedContainerService.HintSize="304,251.2" sap2010:WorkflowViewState.IdRef="Sequence_1923">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1942">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_resultProcess]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Data Not Found</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1943">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_exceptionStatus]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[exception.ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </Catch>
+    </TryCatch.Catches>
+  </TryCatch>
+</Activity>

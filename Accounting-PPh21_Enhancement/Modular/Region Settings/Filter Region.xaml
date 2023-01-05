@@ -1,0 +1,253 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Filter_Region" this:Filter_Region.in_region="Indonesian (Indonesia)" this:Filter_Region.in_shortcutRegionSettings="Region Settings.lnk" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_region" Type="InArgument(x:String)" />
+    <x:Property Name="in_shortcutRegionSettings" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>823.333333333333,1321.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Filter_Region_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Filter_Region" sap:VirtualizedContainerService.HintSize="588.666666666667,1256.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="pathRegionSettings" />
+      <Variable x:TypeArguments="x:String" Name="checkText" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="pathRegionSettings" sap:VirtualizedContainerService.HintSize="546.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[pathRegionSettings]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Path.Combine(Environment.CurrentDirectory,"Modular","Region Settings",in_shortcutRegionSettings)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[pathRegionSettings]" sap:VirtualizedContainerService.HintSize="546.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="546.666666666667,68" sap2010:WorkflowViewState.IdRef="GetValue_1">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="75c83144-3bf7-4f87-98a9-166e9c3a55c7" Selector="&lt;wnd app='rundll32.exe' cls='#32770' /&gt;&lt;wnd cls='#32770' title='Formats' /&gt;&lt;wnd ctrlid='1021' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[checkText]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <If Condition="[checkText.Equals(in_region)]" DisplayName="Check Region" sap:VirtualizedContainerService.HintSize="546.666666666667,682" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Else>
+        <Sequence DisplayName="Select Region" sap:VirtualizedContainerService.HintSize="400.666666666667,518" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Format'" sap:VirtualizedContainerService.HintSize="358.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2ff9fc38-a209-4865-ab9a-072bc0a87450" InformativeScreenshot="84a7eb9ba96f3390a214a1e0fd26072f" Selector="&lt;wnd app='rundll32.exe' cls='#32770' /&gt;&lt;wnd cls='#32770' title='Formats' /&gt;&lt;wnd ctrlid='1021' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:SelectItem ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Select Item 'Format'" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_region]">
+            <ui:SelectItem.Items>
+              <scg:List x:TypeArguments="x:String" Capacity="50">
+                <x:String>Match Windows display language (recommended)</x:String>
+                <x:String>Afar (Djibouti)</x:String>
+                <x:String>Afar (Eritrea)</x:String>
+                <x:String>Afar (Ethiopia)</x:String>
+                <x:String>Afrikaans (Namibia)</x:String>
+                <x:String>Afrikaans (South Africa)</x:String>
+                <x:String>Aghem (Cameroon)</x:String>
+                <x:String>Akan (Ghana)</x:String>
+                <x:String>Albanian (Albania)</x:String>
+                <x:String>Albanian (Kosovo)</x:String>
+                <x:String>Albanian (Macedonia, FYRO)</x:String>
+                <x:String>Alsatian (France)</x:String>
+                <x:String>Alsatian (Liechtenstein)</x:String>
+                <x:String>Alsatian (Switzerland)</x:String>
+                <x:String>Amharic (Ethiopia)</x:String>
+                <x:String>Arabic (Algeria)</x:String>
+                <x:String>Arabic (Bahrain)</x:String>
+                <x:String>Arabic (Chad)</x:String>
+                <x:String>Arabic (Comoros)</x:String>
+                <x:String>Arabic (Djibouti)</x:String>
+                <x:String>Arabic (Egypt)</x:String>
+                <x:String>Arabic (Eritrea)</x:String>
+                <x:String>Arabic (Iraq)</x:String>
+                <x:String>Arabic (Israel)</x:String>
+                <x:String>Arabic (Jordan)</x:String>
+                <x:String>Arabic (Kuwait)</x:String>
+                <x:String>Arabic (Lebanon)</x:String>
+                <x:String>Arabic (Libya)</x:String>
+                <x:String>Arabic (Mauritania)</x:String>
+                <x:String>Arabic (Morocco)</x:String>
+                <x:String>Arabic (Oman)</x:String>
+                <x:String>Arabic (Palestinian Authority)</x:String>
+                <x:String>Arabic (Qatar)</x:String>
+                <x:String>Arabic (Saudi Arabia)</x:String>
+                <x:String>Arabic (Somalia)</x:String>
+                <x:String>Arabic (South Sudan)</x:String>
+                <x:String>Arabic (Sudan)</x:String>
+                <x:String>Arabic (Syria)</x:String>
+                <x:String>Arabic (Tunisia)</x:String>
+                <x:String>Arabic (United Arab Emirates)</x:String>
+                <x:String>Arabic (World)</x:String>
+                <x:String>Arabic (Yemen)</x:String>
+                <x:String>Armenian (Armenia)</x:String>
+                <x:String>Assamese (India)</x:String>
+                <x:String>Asturian (Spain)</x:String>
+                <x:String>Asu (Tanzania)</x:String>
+                <x:String>Azerbaijani (Cyrillic, Azerbaijan)</x:String>
+                <x:String>Azerbaijani (Latin, Azerbaijan)</x:String>
+                <x:String>Bafia (Cameroon)</x:String>
+                <x:String>Bamanankan (Latin, Mali)</x:String>
+              </scg:List>
+            </ui:SelectItem.Items>
+            <ui:SelectItem.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05d9ea31-9c70-4f11-ba18-0b75419a0f63" InformativeScreenshot="643db28c64f47392bfc514d8c49a540b" Selector="&lt;wnd app='rundll32.exe' cls='#32770' title='Region' /&gt;&lt;wnd cls='#32770' title='Formats' /&gt;&lt;wnd ctrlid='1021' /&gt;&lt;ctrl role='combo box' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:SelectItem.Target>
+          </ui:SelectItem>
+          <ui:Click CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'Format'" sap:VirtualizedContainerService.HintSize="358.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7e3cb2d0-a0dc-4d00-9f89-251522d5ac2c" InformativeScreenshot="6c6aaf85a46051c3972fb5a7674b8217" Selector="[String.Format(&quot;&lt;wnd app='rundll32.exe' cls='ComboLBox' idx='*' /&gt;&lt;ctrl name='Format:*' role='list' /&gt;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, in_region)]">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:Click CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="546.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8a8f083b-793f-4981-9bee-e082db19cd97" InformativeScreenshot="d3d52e1bc18274126047cf37bc9b300f" Selector="&lt;wnd app='rundll32.exe' cls='#32770' /&gt;&lt;wnd aaname='OK' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+  </Sequence>
+</Activity>

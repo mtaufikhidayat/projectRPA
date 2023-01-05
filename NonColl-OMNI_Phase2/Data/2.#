@@ -1,0 +1,54 @@
+SELECT 
+(SELECT
+	'dataTimezone' timezone,
+	'dataSourceData' source_system,
+	CONCAT(Branch_ID,'-',Application_ID,'_',Replace(Convert(varchar, getdate(), 103),'/','') ) message_correlation_id,
+	'dataMessageType' message_type,
+
+		null [whatsapp.QrPayload], 
+	(SELECT  
+	JSON_QUERY('[' + STUFF(( SELECT ',' + '"' + Mobile_Phone+ '"' +',' + '"' + Phone_Number_2+ '"'
+	FOR XML PATH('')),1,1,'') + ']' )) AS [whatsapp.Mobiles],
+	'ID' [whatsapp.Language],
+	
+	(SELECT  
+	JSON_QUERY('[' + STUFF(( SELECT ',' + '"' + Mobile_Phone+ '"' +',' + '"' + Phone_Number_2+ '"'
+	FOR XML PATH('')),1,1,'') + ']')) AS [sms_mobiles],
+		
+	(SELECT  
+	JSON_QUERY('[' + STUFF(( SELECT ',' + '"' + Mobile_Phone+ '"' +',' + '"' + Phone_Number_2+ '"'
+	FOR XML PATH('')),1,1,'') + ']' )) AS [voice_phone_numbers],
+	
+	(SELECT  
+	JSON_QUERY('[' + STUFF(( SELECT ',' + '"' + Email+ '"' 
+	FOR XML PATH('')),1,1,'') + ']' )) AS  [emails.to],
+	'dataCC' [emails.cc],
+	'dataBCC' [emails.bcc],
+
+	Source_Data [message_parameters.source],
+	TRIM (Branch_ID) [message_parameters.branch_id],
+	TRIM (Branch_Name) [message_parameters.branch_name],
+	TRIM (Application_ID) [message_parameters.application_id],
+	TRIM (Agreement) [message_parameters.agreement_no],
+	TRIM (Customer_ID) [message_parameters.customer_id],
+	TRIM (Customer_Name) [message_parameters.customer_name],
+	CustomerType[message_parameters.customer_type],
+	'KTP'[message_parameters.id_type],
+	TRIM (NIK) [message_parameters.id_number],
+	DateofBirth[message_parameters.birth_date],
+    Gender[message_parameters.gender],
+	Email [message_parameters.email],
+	Mobile_Phone [message_parameters.mobile_Phone],
+	Phone_Number_2[message_parameters.legal_mobile_phone_2],
+	Customer_Rating[message_parameters.customer_rating],
+    Contract_Status [message_parameters.contract_Status],
+	Product_Description [message_parameters.product],
+	Product_Offering_Description [message_parameters.product_offering],
+	Product_Offering_ID [message_parameters.product_offering_id],
+	Tenor [message_parameters.tenor],
+	Installment_Amount [message_parameters.installment_amount],
+	Installment_Number [message_parameters.installment_number],
+    Last_Go_Live_Date [message_parameters.go_live_date]
+	dataAddQuery
+
+FOR JSON PATH, INCLUDE_NULL_VALUES, WITHOUT_ARRAY_WRAPPER) JSONResult

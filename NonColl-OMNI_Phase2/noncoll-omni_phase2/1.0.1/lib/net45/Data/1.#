@@ -1,0 +1,14 @@
+Select
+dataAddQueryMandatory,
+REPLACE(REPLACE([NIK], '.', ''), '/', '') AS [Identity Number],
+[Full_name] AS [Name as ID],
+[Full_name] AS [Full Name],
+[MotherName] AS [Mothers Name],
+case when ([Gender]='M') then 'L' else 'P' end  AS [Gender],
+Replace(Convert(varchar,[DateofBirth],112),'/','') AS [Birthdate],
+'10'  AS [Purpose Code],
+
+--Flagging NIK_SLIK
+REPLACE(REPLACE([NIK], '.', ''), '/', '') as nik,
+GetDate() as updatedate,
+dataAddQueryNonMandatory
